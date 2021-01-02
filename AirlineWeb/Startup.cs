@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AirlineWeb.Data;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,8 +29,9 @@ namespace AirlineWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AirlineDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AirlineConnections")));
             services.AddControllers();
+            services.AddDbContext<AirlineDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AirlineConnections")));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AirlineWeb", Version = "v1" });
