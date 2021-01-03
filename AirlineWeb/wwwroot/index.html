@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Pan Australian Airlines - Webhook Registration</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="display-3 text-center my-4">Pan Australian Airlines</h1>
+    <h3 class="display-5 text-center my-4">Webhook Registration</h3>
+
+    <div id="alertSuccess" class="alert alert-success" style="display: none;">
+      <strong>Success</strong>
+      <label id="successMessage">Webhook Registered!</label>
+    </div>
+
+    <div id="alertDanger" class="alert alert-danger" style="display: none;">
+      <strong>Danger</strong>
+      <label id="dangerMessage">Something went wrong. Please check the log files.</label>
+    </div>
+
+    <div id="registration">
+      <div class="form-group">
+        <label for="webhook">Enter your Webhook URI</label>
+        <input id="webhook" class="form-control form-control-lg" type="text" placeholder="Enter URI">
+        <small class="form-text text-muted">Your webhook URI will not be shared</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="webhooktype">Webhook Type</label>
+      <select id="webhooktype" class="form-control">
+        <option>Price Change</option>
+        <option>Seat availability</option>
+        <option>Flight Delays & Disruption</option>
+      </select>
+    </div>
+
+    <div>
+      <button id="register" class="btn btn-primary btn-block" type="submit">Register</button>
+    </div>
+  </div>
+</body>
+
+<script src="index.js"></script>
+</html>
